@@ -9,7 +9,7 @@ const app = express();
 // req is the request, res is the outgoing object
 // res.send is the payload
 app.get('/', (req,res) => {
-    res.send({ hi: 'there' });
+    res.send({ bye: 'buddy' });
 });
 
 // deployed via Heroku, otherwise deploy on 5000
