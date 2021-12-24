@@ -1,6 +1,6 @@
 //'nodemon index.js' script to allow it re-run on any input type
-
-
+const cookieSession = require('cookie-session');
+const passport = require('passport');
 const keys = require('./config/keys');
 const express = require('express');
 const mongoose = require('mongoose');
@@ -12,6 +12,17 @@ mongoose.connect(keys.mongoURI);
 
 // This creates an app object with express
 const app = express();
+
+app.use(
+    cookieSession({
+        maxAge: 30 * 24* 60 * 60 * 1000, // last 30 days
+        keys: [keys.cookieKey]
+    })
+);
+
+// tell passport to use cookies 
+app.use(passport.initialize());
+app.use(passport.session());
 
 // authroute returns function and we want to call with with app
 require('./routes/authroute')(app);
