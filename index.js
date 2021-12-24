@@ -4,8 +4,9 @@
 const keys = require('./config/keys');
 const express = require('express');
 const mongoose = require('mongoose');
+
+require('./models/user'); // This statement must be above the one below
 require('./services/passport'); // Require the passport function
-require('./models/user');
 
 mongoose.connect(keys.mongoURI);
 
@@ -14,7 +15,6 @@ const app = express();
 
 // authroute returns function and we want to call with with app
 require('./routes/authroute')(app);
-mongoose.connect(keys.mongoURI);
 
 // deployed via Heroku, otherwise deploy on localhost:5000
 const PORT = process.env.PORT || 5000;
