@@ -13,4 +13,15 @@ module.exports = (app) => {
     app.get('/auth/google/callback',
         passport.authenticate('google')
     );
+
+    // routing for authentification testing
+    app.get('/api/logout',(req,res) => {
+        req.logout(); // passport attaches to the req
+        res.send(req.user); // send back 
+    });
+
+    // req incoming request, res is outgoing response
+    app.get('/api/current_user', (req,res) => {
+        res.send(req.user);
+    });
 };
