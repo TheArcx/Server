@@ -25,7 +25,8 @@ passport.use(new GoogleStrategy(
     {
         clientID: keys.googleClientID,
         clientSecret: keys.googleClientSecret,
-        callbackURL: '/auth/google/callback'
+        callbackURL: '/auth/google/callback',
+        proxy: true // Tell google to trust the proxy
     }, 
     (accessToken,refreshToken,profile, done) => { // take information recieved from google, create in database
         User.findOne({ googleId: profile.id }) // Query the DB
