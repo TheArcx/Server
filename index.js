@@ -28,5 +28,5 @@ app.use(passport.session());
 require('./routes/authroute')(app);
 
 // deployed via Heroku, otherwise deploy on localhost:5000
-const PORT = process.env.port|| 5000;
+const PORT = process.env.PORT|| 5000;
 app.listen(PORT);
