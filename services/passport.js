@@ -28,19 +28,15 @@ passport.use(new GoogleStrategy(
         callbackURL: '/auth/google/callback',
         proxy: true // Tell google to trust the proxy
     }, 
-    (accessToken,refreshToken,profile, done) => { // take information recieved from google, create in database
-        User.findOne({ googleId: profile.id }) // Query the DB
-            .then((existingUser) => { // if no user then existingUser = null
-                if(existingUser){
-                    // Record already exists
-                    done(null, existingUser);
-                }else{
-                    // Record does not exist
-                    new User({ googleId: profile.id}) // model instance
-                        .save() // save
-                        .then(user => done(null,user)); // wait on completion
-                }
-            });
+    async (accessToken,refreshToken,profile, done) => { // take information recieved from google, create in database
+        const existingUser = await User.findOne({ googleId: profile.id }); // Query the DB
+            if(existingUser){
+                // Record already exists
+                done(null, existingUser);
+            }
+            // Record does not exist
+            const user = await new User({ googleId: profile.id}).save() // save
+            done(null,user);
         }
     )
 );
