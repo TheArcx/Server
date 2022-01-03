@@ -5,19 +5,24 @@ module.exports = (app) => {
     app.get(
         '/auth/google', 
         passport.authenticate('google',{
-        scope: ['profile','email']
+        scope: ['profile','email'],
+        prompt: 'select_account'
         })
     );
 
     // Routing after the user has authenticated
-    app.get('/auth/google/callback',
-        passport.authenticate('google')
+    app.get(
+        '/auth/google/callback',
+        passport.authenticate('google'),
+        (req,res) => {
+            res.redirect('/surveys');
+        }
     );
 
     // routing for authentification testing
     app.get('/api/logout',(req,res) => {
         req.logout(); // passport attaches to the req
-        res.send(req.user); // send back 
+        res.redirect('/');
     });
 
     // req incoming request, res is outgoing response
