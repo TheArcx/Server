@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
+import Billing from "./Billing";
 
 class Header extends Component{
 
@@ -13,8 +14,11 @@ class Header extends Component{
                     <li><a href="/auth/google">Sign-in With Google</a></li>
                 );
             default: // Logged in
-                return (
+                return ([
+                    <li><Billing/></li>,
                     <li><a href="/api/logout">Logout</a></li>
+
+                ]
                 );
         }
     }
