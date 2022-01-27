@@ -4,8 +4,7 @@ const Schema = mongoose.Schema;
 // Database scheme
 const userSchema = new Schema({
     googleId: String,
-    name: String
+    credits: { type: Number, default: 0}
 });
 
-// Tell mongoose we want a new collection called users
 mongoose.model('users', userSchema);
