@@ -6,7 +6,8 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 
-require('./models/user'); // This statement must be above the one below
+require('./models/user');
+require('./models/survey');
 require('./services/passport'); // Require the passport function
 
 mongoose.connect(keys.mongoURI);
