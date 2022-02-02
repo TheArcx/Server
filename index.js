@@ -30,6 +30,7 @@ app.use(passport.session());
 // Connect routes
 require('./routes/authroute')(app);
 require('./routes/billingroute')(app);
+require('./routes/surveyroutes')(app);
 
 if (process.env.NODE_ENV === 'production') {
     // Serve up production assets for deployment only

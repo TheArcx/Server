@@ -19,7 +19,6 @@ passport.deserializeUser((id, done) => {
     })
 });
 
-
 // googlestrategy can be accessed with 'google'
 passport.use(new GoogleStrategy(
     {
