@@ -1,5 +1,5 @@
 const _ = require('lodash');
-const { Path } = require('path-parser');
+const { Path } = require("path-parser");
 const { URL } = require('url');
 const mongoose = require('mongoose');
 const checkLogin = require('../middlewares/checkLogin');
@@ -11,7 +11,14 @@ const Survey = mongoose.model('surveys');
 
 module.exports = app => {
 
-    app.get('/api/surveys/thanks', (req, res) => {
+    app.get('/api/surveys', checkLogin, async (req, res) => {
+        const surveys = await Survey.find({ _user: req.user.id })
+        .select({ recipients: false }); // Do not include recipients
+
+        res.send(surveys);
+    });
+
+    app.get('/api/surveys/:surveyId/:choice', (req, res) => {
         res.send('Thanks for voting!');
     });
     
@@ -30,9 +37,21 @@ module.exports = app => {
                     };
                 }
             })
-            // Only return events and unique emails
             .compact()
             .uniqBy('email', 'surveyId')
+            .each(({ surveyId, email, choice}) => {
+                Survey.updateOne({
+                    _id: surveyId,
+                    recipients: {
+                        $elemMatch: { email: email, responded: false }
+                    }
+                },
+                {
+                    $inc: { [choice]: 1 },
+                    $set: { 'recipients.$.responded': true },
+                    lastResponded: new Date()
+                }).exec();
+            }) 
             .value();
         
         res.send({});
