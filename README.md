@@ -30,7 +30,7 @@ npm run build - Builds the application and gets it ready to deploy to Heroku. Th
 - SendGrid
 - Passport
 
-## Preview
+## Front-End Preview
 # Dashboard After user is signed in
 Clicking the logo on the left will direct the user back to the dashboard at any time. Add credits will bring up the stripe payment screen. Logout will sign out the individual and be replaced with a sign in option.
 ![image](https://user-images.githubusercontent.com/29129116/160463253-a24d6d21-7914-44ad-a151-167510ab5820.png)
