@@ -9,6 +9,11 @@ Users can add credits to their account with credit card transactions through Str
 The package.json file contains all the custom run scripts made for the application. \
 npm run dev - Runs the application in developer mode.
 
+NGROK is used for creating the local tunnel for SendGrid to send to:
+ngrok http 5000
+
+The second forwarding address must be pasted into the Event Webhook settings under SendGrid for Emailer. This address changes when a new NGROK instance is opened.
+
 ## Deploying to Heroku
 
 npm run build - Builds the application and gets it ready to deploy to Heroku. The github repo is already linked to it in the Heroku backend.
