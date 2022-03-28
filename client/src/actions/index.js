@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { GET_USER } from './types';
+import { FETCH_SURVEYS } from './types';
 
 // Get the valid user object to check if the user is signed in
 export const getUser = () => async dispatch => {
@@ -18,4 +19,9 @@ export const submitSurvey = (values, history) => async dispatch => {
 
     history.push('/surveys');
     dispatch({ type: GET_USER, payload: res.data });
+};
+
+export const fetchsurveys = () => async dispatch => {
+    const res = await axios.get('/api/surveys');
+    dispatch({ type: FETCH_SURVEYS, payload: res.data });
 };
