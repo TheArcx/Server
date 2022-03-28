@@ -31,12 +31,12 @@ npm run build - Builds the application and gets it ready to deploy to Heroku. Th
 - Passport
 
 ## Front-End Preview
-# Dashboard After user is signed in
+# Dashboard After User Authentification
 Clicking the logo on the left will direct the user back to the dashboard at any time. Add credits will bring up the stripe payment screen. Logout will sign out the individual and be replaced with a sign in option.
 ![image](https://user-images.githubusercontent.com/29129116/160463253-a24d6d21-7914-44ad-a151-167510ab5820.png)
 
 # Creating a Survey
-Input fields give user feedback after being interacted with. Emails that are incorrect are told to the user. Recipients should be seperated with commas.
+Input fields give user feedback after being interacted with. Emails that are incorrect are told to the user. Email addresses should be seperated with commas.
 ![image](https://user-images.githubusercontent.com/29129116/160464136-914c3909-0973-4a29-8b5c-fbac268f94b5.png)
 
 # Review Screen
