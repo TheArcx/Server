@@ -46,5 +46,5 @@ Users can review their survey before sending to the recipients. A minimum of 1 c
 # Email Template
 The following image shows the current email template. The recipient can reply only once and the first choice clicked gets sent back and stored into the database.
 
-<center>![image](https://user-images.githubusercontent.com/29129116/160845940-981c7448-ccdf-4f80-bbc6-c5ab5e3ed667.png)</center>
+![image](https://user-images.githubusercontent.com/29129116/160845940-981c7448-ccdf-4f80-bbc6-c5ab5e3ed667.png)
 
