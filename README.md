@@ -4,7 +4,7 @@ The purpose of this application is to be a survey software in which people can p
 
 Users can add credits to their account with credit card transactions through Stripe API. Upon confirmation of the survey, credits are consumed and the emails go out. Responses are tracked with SendGrid API and stored in the database associated with the user ID of the creator to access later.
 
-# Run
+# Executing the Program
 
 The package.json file contains all the custom run scripts made for the application. \
 npm run dev - Runs the application in developer mode.
@@ -29,3 +29,22 @@ npm run build - Builds the application and gets it ready to deploy to Heroku. Th
 - Stripe
 - SendGrid
 - Passport
+
+## Front-End Preview
+# Dashboard After User Authentification
+Clicking the logo on the left will direct the user back to the dashboard at any time. Add credits will bring up the stripe payment screen. Logout will sign out the individual and be replaced with a sign in option. Users can see their own created survey's and responses (Y/N) as recipients respond to them.
+![image](https://user-images.githubusercontent.com/29129116/160463253-a24d6d21-7914-44ad-a151-167510ab5820.png)
+
+# Creating a Survey
+Input fields give user feedback after being interacted with. Emails that are incorrect are told to the user. Email addresses should be seperated with commas.
+![image](https://user-images.githubusercontent.com/29129116/160464136-914c3909-0973-4a29-8b5c-fbac268f94b5.png)
+
+# Review Screen
+Users can review their survey before sending to the recipients. A minimum of 1 credit is required to send out the email.
+![image](https://user-images.githubusercontent.com/29129116/160464386-b99f0111-0b4d-45c8-aa91-13556eda4d5f.png)
+
+# Email Template
+The following image shows the current email template. The recipient can reply only once and the first choice clicked gets sent back and stored into the database.
+
+![image](https://user-images.githubusercontent.com/29129116/160845940-981c7448-ccdf-4f80-bbc6-c5ab5e3ed667.png)
+
