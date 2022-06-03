@@ -25,7 +25,6 @@ module.exports = (app) => {
         res.redirect('/');
     });
 
-    // req incoming request, res is outgoing response
     // Returns a user model
     app.get('/api/current_user', (req,res) => {
         res.send(req.user);
